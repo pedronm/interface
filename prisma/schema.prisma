@@ -1,0 +1,5 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL_erD+ElOSAMMp4RyRPe+piwiYZciDusEgw2+OGQJL/ASLDeKJsVrBcYKaP0XdLOiu")
+}
+
