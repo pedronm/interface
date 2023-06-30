@@ -6,10 +6,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "@google-cloud/storage": "^6.11.0",
     "clsx": "^1.2.1",
     "date-fns": "^2.30.0",
-    "dropbox": "^10.34.0",
     "formidable": "^3.4.0",
     "gray-matter": "^4.0.3",
     "next": "latest",
