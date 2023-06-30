@@ -1,8 +1,5 @@
 import Head from 'next/head';
-import utilStyles from '../sass/base/util.module.scss';
 import homeStyles from '../sass/Home.module.scss';
-import { getSortedPostsData } from '../lib/posts';
-import Link from 'next/link';
 import Card from '../components/card'
 
 export default function Home({ allPostsData }) {
@@ -16,8 +13,8 @@ export default function Home({ allPostsData }) {
       </section>
       <section className={homeStyles.conteudo}>
         <Card imagemFundo="/img/ICODocumentoBig.png" titulo="Documento" cor="" link={`/posts/documento`}/>
-        <Card imagemFundo="/img/ICOLicensa.png" titulo="Operacoes" cor="" link={`/lista/operacoes`}/>
-        <Card imagemFundo="/img/ICOOperacoesBig.png" titulo="Licenca" cor="" link={`/lista/licenca`}/>
+        <Card imagemFundo="/img/ICOLicensa.png" titulo="Operacoes" cor="" link={`/posts/operacao`}/>
+        <Card imagemFundo="/img/ICOOperacoesBig.png" titulo="Licenca" cor="" link={`/posts/licenca`}/>
       </section>
       <section className={homeStyles.rodape}>
         <pre> Versão 1.0 </pre>

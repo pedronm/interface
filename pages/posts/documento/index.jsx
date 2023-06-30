@@ -87,11 +87,6 @@ export default function Documento(props){
         reader.addEventListener('load', readFile);
         reader.readAsDataURL(file);
     }
-
-    const showMe = async () => {
-        alert('SHOOOOOOOOOOOOOOW MEEEE')
-        console.log('SHOOOOOW MEEEE')
-    }
     const baixaArquivoDoPrisma = async (itemArquivo) => {
         if(window && window !== undefined){            
             setCarregando(true)
@@ -128,13 +123,19 @@ export default function Documento(props){
                         <div className={styleLista.listaConteudoItem} key={item.id} onClick={ (e) =>{
                             alert(`item selecionado ${item.id}`)
                         }}>
-                            <label htmlFor="cmpNome">Nome:</label>
-                            <span id="cmpNome"> {item.nome}</span>
-                            <label htmlFor="cmpNome">Arquivo:</label>
-                            <span>Nome do Arquivo: {item.url_documento_ocean}</span>
-                            <span className={styleLista.listaConteudoItemDownload} onClick={ () =>  { baixaArquivoDoPrisma(item.arquivo) }}>
-                                <img src="/img/ICODownload.png" />
-                            </span>
+                            <div className={styleLista.listaConteudoItemGrupo}>
+                                <label htmlFor="cmpNome">Nome:</label>
+                                <span id="cmpNome"> {item.nome}</span>
+                            </div>
+                            <div className={styleLista.listaConteudoItemGrupo}>
+                                <label htmlFor="cmpNome">Arquivo:</label>
+                                <span>Nome do Arquivo: {item.url_documento_ocean}</span>
+                            </div>
+                            <div className={styleLista.listaConteudoItemGrupo}>
+                                <span className={styleLista.listaConteudoItemDownload} onClick={ () =>  { baixaArquivoDoPrisma(item.arquivo) }}>
+                                    <img src="/img/ICODownload.png" />
+                                </span>
+                            </div>
                             {/* <iframe src={dados.url_documento_ocean}></iframe> */}
                         </div>
                     </>

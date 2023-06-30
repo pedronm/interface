@@ -48,11 +48,11 @@
         visibility: visible;
     }
 
-    &:target &__content{
+    &:target &Content{
         transform: translate(-50%, -50%) scale(1);
     }
 
-    &__close{
+    &Close{
         &:link,
         &:visited{
             color: $color-grey-dark;
@@ -71,7 +71,7 @@
         }
     }
     
-    &__content{
+    &Content{
 
         position: absolute;
 
@@ -90,38 +90,56 @@
         transform: translate(-50%, -50%) scale(0);
     }
 
-    &__left{
-        width: 33.33333%;
-        display: table-cell;
-    }
-
-    &__right{
+    &Center{
+     
         width: 66.666667%;
         display: table-cell;
         vertical-align: middle;
         padding: 3rem 5rem;
     }
 
-    &__img{
+    &FormGroup{
+        display: flex;
+        flex-flow: column;
+        
+        padding: 2rem;
+        margin: 1rem 2rem;
+
+        font-size: 1.5rem;
+    }
+
+    &Botao{
+        cursor: pointer;
+        display: inline-block;
+        background-color: rgba($color-secondary-dark, 1);
+        height: 7rem;
+        width: 7rem;
+
+        text-align: center;
+        font-weight: 400;
+        font-size: 1.4rem;
+
+        bottom: 6rem;
+        right: -4rem;
+
+        border-radius: 50%;
+        
+        box-shadow: 0 1rem 3rem rgba($color-black, .1);
+        position: fixed;
+
+        z-index: 2000;
+
+        transition: transform .3s;
+
+        &:hover{
+            transform: scale(1.2);
+        }
+    }
+
+    &Img{
         display: block;
         width: 100%;
     }
 
-    &__text{
-        font-size: 1.4rem;
-        margin-bottom: 4rem;
-
-        -moz-column-count: 2;
-        -moz-column-gap: 4rem;
-        -moz-column-rule: 1px solid $color-grey-light-1;
-
-        column-count: 2;
-        column-gap: 4rem;
-        column-rule: 1px solid $color-grey-light-1;
-
-        -moz-hyphens: auto;
-        -ms-hyphens: auto;
-        -webkit-hyphens: auto;
-        hyphens: auto;
-    }
+    
 } 
