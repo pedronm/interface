@@ -16,36 +16,9 @@ export default function Documento(props){
     const [carregando, setCarregando] = useState(false)
     const [documento, setDocumentoBrray] = useState([''])
            
-    const submitData = async (form) => {
+    const submitData = async (form) => {                
 
-        const UPLOAD_FILE_SIZE_LIMIT = 5 * 1024 * 1024;
-        form.preventDefault();
-    
-        const exibB = document.getElementById("exibitDois"),
-        exibA = document.getElementById("exibit"),
-        exibC = document.getElementById("exibitTres"),
-    
-        exibD = document.getElementById("exibitInterno"),
-        exibE = document.getElementById("exibitInternoDois"),
-        exibF = document.getElementById("exibitInternoTres")
-    
-        exibA.innerHTML = form.target.nome.value
-        exibB.innerHTML = form.target.documento.value
-
-        var file = form.target.documento.files[0];   
-        var results = document.getElementById('results'),
-            resultadoBaixado = document.getElementById('resultsBaixado'),
-            iframe = document.getElementById('frameExibirArquivo');
-        var pathBaixado = '',
-        pathBaixadoB = ''
-        results.innerHTML = ''
-       
-        const selectedFile = form.target.documento.files[0];
-
-        
-        const bytetray = selectedFile
-
-        await fetch(
+        const retorno = await fetch(
             '/api/documento/gravar-documento',
             {   
                 method: "POST",
@@ -55,30 +28,19 @@ export default function Documento(props){
                     arquivo: documento
                 })
             }
-        ).then(
-            (retorno) => {
-                results.innerHTML = retorno
-                Base64Helper(retorno.arquivo)
-            }
-        ).catch( (erro) => {
-            results.innerHTML = erro
-        })
+        )
 
-        window.history.back();
+        if(retorno.status === "200"){
+            alert('Gravado com Sucesso!')
+            window.history.back();
+        }else{
+            alert('Erro ao Gravar!')
+        }
         
     }   
 
-    const getBase64 = async (file) => {
-        var reader = new FileReader();
-        reader.readAsDataURL(file)
-        return reader
-    }
-
     function readFile(event) {
-        var textarea = document.querySelector('textarea');
-        textarea.textContent = event.target.result;
         setDocumentoBrray(event.target.result)
-        console.log(event.target.result);
     }
 
     function changeFile(event) {
@@ -87,6 +49,7 @@ export default function Documento(props){
         reader.addEventListener('load', readFile);
         reader.readAsDataURL(file);
     }
+    
     const baixaArquivoDoPrisma = async (itemArquivo) => {
         if(window && window !== undefined){            
             setCarregando(true)
