@@ -1,5 +1,36 @@
-datasource db {
-  provider = "postgresql"
-  url      = env("DB_URL_erD+ElOSAMMp4RyRPe+piwiYZciDusEgw2+OGQJL/ASLDeKJsVrBcYKaP0XdLOiu")
+generator client {
+  provider = "prisma-client-js"
 }
 
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://postgres:KS4Dz9KdxSfQlsUukfYU@containers-us-west-22.railway.app:7620/railway"
+}
+model documento {
+  id                  Int     @id @default(autoincrement())
+  nome                String? @default("TESTE")
+  url_documento_ocean String?
+  arquivo             String?
+}
+
+model documento_licenca {
+  id        Int @id @default(autoincrement())
+  documento Int
+}
+
+model licenca {
+  id                Int    @id @default(autoincrement())
+  descricao         String @default("teste")
+  vencimento        String @default("20/01/2006")
+  inicio            String @default("17/08/2005")
+  tipo              String @default("OBRA_PUBLICA")
+  documento_licenca Int    @default(1)
+}
+
+model operacao {
+  id         Int    @id @default(autoincrement())
+  descricao  String @default("teste")
+  abreviacao String @default("teste")
+  data       String
+  licenca    Int
+}

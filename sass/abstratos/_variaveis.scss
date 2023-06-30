@@ -1,0 +1,37 @@
+
+
+
+$color-primary:#8cbd7c99 ;
+$color-primary-light:#b4e9a39d ;
+$color-primary-dark:#7abb65;
+
+$color-secondary:#659c57 ;
+$color-secondary-light:#7dbf6c ;
+$color-secondary-dark:#87d374;
+
+$color1:#3f7b32 ;
+$color5:#daffc6 ;
+$color4:#b3dea1 ;
+
+$color-tertiary-light: #4e973d;
+$color-tertiary-dark: #2c5a22;
+
+$color-grey-light-1:#f7f7f7;
+$color-grey-light-2:#eee;
+
+$color-grey-dark: #777;
+$color-grey-dark-2: #999;
+$color-grey-dark-3: #333;
+
+$color-white: #fff;
+$color-black: #000;
+
+//font
+$default-font-size: 1.8rem;
+
+// Grid
+$grid-width: 114rem;
+// theses values will become variables because of their
+// repeated use in it.
+$gutter-vertical: 8rem;
+$gutter-horizontal: 8rem;

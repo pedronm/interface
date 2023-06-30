@@ -1,46 +1,28 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
-import utilStyles from '../styles/util.module.css';
+import utilStyles from '../sass/base/util.module.scss';
+import homeStyles from '../sass/Home.module.scss';
 import { getSortedPostsData } from '../lib/posts';
 import Link from 'next/link';
-import Date from '../components/date';
-
-
-export async function getStaticProps(){
-  const allPostsData = getSortedPostsData();
-  return{
-    props:{
-      allPostsData,
-    }
-  }
-}
+import Card from '../components/card'
 
 export default function Home({ allPostsData }) {
   return (
-    <Layout home>
+    <>
       <Head>
-        <title>{siteTitle}</title>
+        <title>GEBEM</title>
       </Head>
-      <section className={utilStyles.headingMd}>
-        <p>It's time to kick some ass</p>
-        <p>
-          (This is a sample website - you’ll be building a site like this on{' '}
-          <a href="https://nextjs.org/learn">our Next.js tutorial</a>.)
-        </p>
+      <section className={homeStyles.cabecalho}>
+        <span className={homeStyles.cabecalhoTitulo}>Gebem</span>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
-          {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-            <Link href={`/posts/${id}`}>{title}</Link>
-            <br />
-            <small className={utilStyles.lightText}>
-            </small>
-          </li>          
-          ))}
-        </ul>
+      <section className={homeStyles.conteudo}>
+        <Card imagemFundo="/img/ICODocumentoBig.png" titulo="Documento" cor="" link={`/posts/documento`}/>
+        <Card imagemFundo="/img/ICOLicensa.png" titulo="Operacoes" cor="" link={`/lista/operacoes`}/>
+        <Card imagemFundo="/img/ICOOperacoesBig.png" titulo="Licenca" cor="" link={`/lista/licenca`}/>
       </section>
-    </Layout>
+      <section className={homeStyles.rodape}>
+        <pre> Versão 1.0 </pre>
+        <a href="https://www.flaticon.com/free-icons/legal" title="legal icons">Legal icons created by Eucalyp - Flaticon</a>
+      </section>
+    </>
   );
 }

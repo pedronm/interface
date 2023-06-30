@@ -1,0 +1,52 @@
+@import '../sass/abstratos/variaveis';
+
+.cabecalho,
+.conteudo,
+.rodape{
+  padding: 2rem;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
+}
+
+
+.conteudo{
+  margin-top: 10rem;
+
+  background-color: rgba($color-grey-light-1,  1.0);
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  
+}
+
+.cabecalho{
+  width: 100%;
+
+  margin-bottom: 12rem;
+
+  background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+
+  text-align: center;
+
+  &Titulo{
+    font-size: 7rem;
+  }
+  
+}
+
+.rodape{
+ padding: 5rem 10rem;
+ position: fixed;
+ bottom: 0;
+ width: 100%;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

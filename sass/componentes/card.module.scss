@@ -1,0 +1,66 @@
+@import '../abstratos/variaveis';
+
+.card{
+    
+    background-color: $color-secondary-light;
+    width: 22rem;
+    height: 21rem;
+    
+    position: relative;
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    text-align: center;
+
+    &Titulo{
+        height: 3rem;
+        padding: 2rem;
+        font-size: 2rem;
+        font-weight: 300;
+    }
+
+    &Corpo{
+        padding: 3rem;
+        width: 72%;
+        height: 5rem;
+        position: relative;
+    }
+
+    &Imagem{
+        position: absolute;
+        padding: 1.32rem;
+        width: auto;
+        bottom: 50%;
+        right: 50%;
+        transform: translate(50%, 50%);
+        border-radius: 50%;
+        background-color: rgba($color-tertiary-dark , 0.6);
+    }
+
+ 
+    &Link {
+
+        font-size: 1.7rem;
+        cursor: pointer;       
+        text-decoration: none; 
+
+        &:link,
+        &:visited{
+            // color: $color-grey-light-1;
+            // background-color: $color-grey-dark-3;
+            // text-decoration: none;
+            // text-transform: uppercase;
+            // display: inline-block;
+            // transition: all .2s;
+        }
+
+        &:hover,
+        &:active{
+            box-shadow: 0 0.2rem 1.3rem rgba($color-black, .4);
+            transform: scale(1.2);
+        }
+
+    }    
+
+    
+}
