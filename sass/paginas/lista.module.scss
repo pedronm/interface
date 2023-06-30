@@ -96,6 +96,21 @@
         }
     }
 
+    &Download {
+            
+        text-align: center;
+        cursor: pointer;
+        text-align: center;
+        padding-top: 2rem;
+        padding-left: 3rem;
+        margin: 0rem 20rem;
+        transition: all .3s;
+        &:hover{
+            transform: scale(2) translateY(10%);
+        }
+    
+    }
+
     &Grupo{
         
         display: flex;
@@ -112,21 +127,7 @@
         }
     
     
-        &Download:last-child {
-            
-            text-align: center;
-            background-color: rgba($color-primary-light , .1);
-    
-            & img {
-                cursor: pointer;
-                text-align: center;
-                padding: 1rem;
-                transition: all .3s;
-                &:hover{
-                    transform: scale(2) translateY(10%);
-                }
-            }
-        }
+        
 
     
     }

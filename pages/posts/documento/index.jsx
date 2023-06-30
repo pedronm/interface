@@ -120,9 +120,7 @@ export default function Documento(props){
                 props.totalDocumentos.length > 0 ?        
                 props.totalDocumentos.map( (item) => {
                     return <>
-                        <div className={styleLista.listaConteudoItem} key={item.id} onClick={ (e) =>{
-                            alert(`item selecionado ${item.id}`)
-                        }}>
+                        <div className={styleLista.listaConteudoItem} key={item.id} >
                             <div className={styleLista.listaConteudoItemGrupo}>
                                 <label htmlFor="cmpNome">Nome:</label>
                                 <span id="cmpNome"> {item.nome}</span>
@@ -131,10 +129,8 @@ export default function Documento(props){
                                 <label htmlFor="cmpNome">Arquivo:</label>
                                 <span>Nome do Arquivo: {item.url_documento_ocean}</span>
                             </div>
-                            <div className={styleLista.listaConteudoItemGrupo}>
-                                <span className={styleLista.listaConteudoItemDownload} onClick={ () =>  { baixaArquivoDoPrisma(item.arquivo) }}>
-                                    <img src="/img/ICODownload.png" />
-                                </span>
+                            <div className={styleLista.listaConteudoItemGrupo} onClick={ () =>  { baixaArquivoDoPrisma(item.arquivo) }}>
+                                <img className={styleLista.listaConteudoItemDownload} src="/img/ICODownload.png" />
                             </div>
                             {/* <iframe src={dados.url_documento_ocean}></iframe> */}
                         </div>
@@ -152,45 +148,30 @@ export default function Documento(props){
             <p>CARREGANDO</p>
         </div>
         <div className={styleModal.popup} id="Popup">
-            <div className={styleModal.popup__content}>
-                <div className={styleModal.popup__left}>
-                    <img src="img/nat-8.jpg" className={styleModal.popup__img} alt="Tour photo" />
-                    <img src="img/nat-9.jpg" className={styleModal.popup__img} alt="Tour photo" />
-                </div>
-                <div className={styleModal.popup__right}>
-                    <form id="funcionaForm" onSubmit={ submitData }>
-                        <label htmlFor="cmpNome">Nome</label>
-                        <input id="cmpNome" type="text" name="nome" required/>
-
-                        <label>Documento</label>
-                        <input type="file" name="documento" onChange={changeFile} required/>
-
-                        <label>Documento Convertido pra base 64</label>
-                        <textarea></textarea>
+            <div className={styleModal.popupContent}>
+                
+                <div className={styleModal.popupCenter}>
+                    <form id="documentoForm" onSubmit={ submitData }>
                         
-                    </form>
+                        <div className={styleModal.popupFormGroup}>
+                            <label htmlFor="cmpNome">Nome</label>
+                            <input id="cmpNome" type="text" name="nome" required/>
+                        </div>
 
-                    <div>
-                        <pre id="exibit"></pre>
-                        <pre id="exibitDois"></pre>
-                        <pre id="exibitTres"></pre>
-                    </div>
-                    <br />
-                    <div>
-                        <pre id="exibitInterno"></pre>
-                        <pre id="exibitInternoDois"></pre>
-                        <pre id="exibitInternoTres"></pre>
-                    </div>
-                    <div id="results"></div>
-                    <br/>
-                    <div id="resultsBaixado"></div>
-                    <iframe id="frameExibirArquivo"></iframe>
-                    <button type="submit" form="funcionaForm">
-                        Submit from outside form
+                        
+                        <div className={styleModal.popupFormGroup}>
+                            <label>Documento</label>
+                            <input type="file" name="documento" onChange={changeFile} required/>
+                        </div>
+
+                    </form>                        
+                    <button className={styleModal.popupBotao} type="submit" form="documentoForm">
+                        Enviar
                     </button>
-                    <a href="#SectionTours" className={styleModal.popup__close}>&times;</a>                       
+                    <a href="#" className={styleModal.popupClose}>&times;</a>                       
                 </div>
             </div>
         </div>
+        
     </>
 }

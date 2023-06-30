@@ -150,56 +150,56 @@ export default function Documento(props){
         </section>
 
         <div className={styleModal.popup} id="Popup">
-                <div className={styleModal.popupContent}>
-                    
-                    <div className={styleModal.popupCenter}>
-                        <form id="funcionaForm" onSubmit={ submitData }>
-                           
-                            <div className={styleModal.popupFormGroup}>
-                                <label>Descricao</label>
-                                <input name="descricao" type="text" required/>
-                            </div>
+            <div className={styleModal.popupContent}>
+                
+                <div className={styleModal.popupCenter}>
+                    <form id="licencaForm" onSubmit={ submitData }>
+                        
+                        <div className={styleModal.popupFormGroup}>
+                            <label>Descricao</label>
+                            <input name="descricao" type="text" required/>
+                        </div>
 
-                            <div className={styleModal.popupFormGroup}>
-                                <label>Inicio</label>
-                                <input name="inicio" type="date" required />
-                            </div>
+                        <div className={styleModal.popupFormGroup}>
+                            <label>Inicio</label>
+                            <input name="inicio" type="date" required />
+                        </div>
 
-                            <div className={styleModal.popupFormGroup}>
-                                <label>Vencimento</label>
-                                <input name="vencimento" type="date" required/>
-                            </div>
+                        <div className={styleModal.popupFormGroup}>
+                            <label>Vencimento</label>
+                            <input name="vencimento" type="date" required/>
+                        </div>
 
-                            <div className={styleModal.popupFormGroup}>
-                                <label>Tipo</label>
-                                <input name="tipo" type="text" required />
-                            </div>
+                        <div className={styleModal.popupFormGroup}>
+                            <label>Tipo</label>
+                            <input name="tipo" type="text" required />
+                        </div>
 
-                            <div className={styleModal.popupFormGroup}>
-                                <label>Documento</label>
-                                <select name='documentoLicenca'>
-                                    {
-                                         
-                                        props.totalDocs.length > 0 ? 
-                                        props.totalDocs.map(
-                                            (item) => <>
-                                                <option value={item.id}>{item.nome}</option>
-                                            </>
-                                        ):
-                                        <option value={0}>Não existem documentos para serem carregadas</option>
-                                    
-                                    }
-                                </select>
-                            </div>
+                        <div className={styleModal.popupFormGroup}>
+                            <label>Documento</label>
+                            <select name='documentoLicenca'>
+                                {
+                                        
+                                    props.totalDocs.length > 0 ? 
+                                    props.totalDocs.map(
+                                        (item) => <>
+                                            <option value={item.id}>{item.nome}</option>
+                                        </>
+                                    ):
+                                    <option value={0}>Não existem documentos para serem carregadas</option>
+                                
+                                }
+                            </select>
+                        </div>
 
-                        </form>                        
-                        <button className={styleModal.popupBotao} type="submit" form="funcionaForm">
-                            Enviar
-                        </button>
-                        <a href="#" className={styleModal.popupClose}>&times;</a>                       
-                    </div>
+                    </form>                        
+                    <button className={styleModal.popupBotao} type="submit" form="licencaForm">
+                        Enviar
+                    </button>
+                    <a href="#" className={styleModal.popupClose}>&times;</a>                       
                 </div>
             </div>
+        </div>
         
     </>
 }
